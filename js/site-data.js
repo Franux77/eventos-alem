@@ -4,7 +4,7 @@
   WhatsApp, Instagram, dirección y preguntas también se pueden cargar desde el panel (Supabase).
 
   Datos confirmados por el dueño (nov. 2026):
-  - Es un SALÓN familiar para todo tipo de eventos.
+  - Es un SALÓN para todo tipo de eventos.
   - 200 personas sentadas / 300 paradas.
   - Climatizado frío / calor.
   - Grupo electrógeno: mantiene las luces de bajo consumo y el equipo de sonido (el evento sigue).
@@ -33,7 +33,7 @@ window.SITE = {
 
   ficha: [
     { grupo: "Espacio", items: [
-      { nombre: "Salón familiar", valor: "Todo tipo de eventos", nota: "15 años, cumpleaños, empresas y lo que quieras festejar." },
+      { nombre: "Salón para todo tipo de eventos", nota: "15 años, cumpleaños, empresas y lo que quieras festejar." },
       { nombre: "Superficie del salón", valor: "500 m²" },
       { nombre: "Personas sentadas", valor: "200" },
       { nombre: "Personas paradas", valor: "300" }
@@ -77,7 +77,7 @@ window.SITE = {
   ],
 
   faq: [
-    { p: "¿Qué eventos se pueden hacer?", r: "Todo tipo de eventos. Es un salón familiar: 15 años, cumpleaños, fiestas de empresa y lo que quieras festejar." },
+    { p: "¿Qué eventos se pueden hacer?", r: "Todo tipo de eventos: 15 años, cumpleaños, fiestas de empresa y lo que quieras festejar." },
     { p: "¿Cuántas personas entran?", r: "200 personas sentadas o 300 paradas." },
     { p: "¿El DJ está incluido?", r: "Sí. El DJ está incluido y el salón tiene 2 cabinas." },
     { p: "¿Qué es el Cielo Dubai?", r: "Una cortina de cientos de luces cálidas que cuelga del techo sobre el salón. Ideal para la entrada, el vals y las fotos." },

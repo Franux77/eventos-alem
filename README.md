@@ -1,6 +1,6 @@
 # Eventos Alem — web oficial
 
-Salón familiar de eventos en Goya, Corrientes. Sitio estático (HTML + CSS + JS, sin build).
+Salón para todo tipo de eventos en Goya, Corrientes. Sitio estático (HTML + CSS + JS, sin build).
 
 - `index.html` — la web (diseño elegido: "Fiesta / Neón").
 - `js/site-data.js` — servicios ("Todo lo que incluye") y preguntas frecuentes. Acá se cambian los textos.
