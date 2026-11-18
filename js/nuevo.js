@@ -32,6 +32,8 @@
     { id: 'cielo-dubai', tipo: 'foto', titulo: 'Cielo Dubai', alt: 'Cientos de hilos de luz cálida sobre las mesas', tags: ['deco', 'pista'] },
     { id: 'parrilla-2', tipo: 'foto', titulo: 'Quincho', alt: 'Quincho vidriado con la parrilla', tags: ['parrilla'] },
     { id: 'clima-ventiladores', tipo: 'foto', titulo: 'Climatizado', alt: 'Pared con ventiladores y aire acondicionado', tags: ['comodidad'] },
+    { id: 'frente', tipo: 'foto', titulo: 'Frente del salón', alt: 'Frente del salón Eventos Alem sobre Av. Leandro N. Alem', tags: ['llegar'] },
+    { id: 'estacionamiento', tipo: 'foto', titulo: 'Estacionamiento', alt: 'Estacionamiento al costado del salón', tags: ['llegar'] },
     { id: 'seg-plano-evacuacion', tipo: 'foto', titulo: 'Plano de evacuación', alt: 'Plano de evacuación con salidas y puntos de encuentro', tags: ['seguridad'] },
     { id: 'seg-matafuego-plano', tipo: 'foto', titulo: 'Matafuegos y cartelería', alt: 'Matafuegos junto al plano y la cartelería', tags: ['seguridad'] },
     { id: 'seg-matafuego', tipo: 'foto', titulo: 'Matafuegos', alt: 'Matafuegos en una columna del salón', tags: ['seguridad'] },

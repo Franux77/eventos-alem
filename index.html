@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Outfit:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/nuevo.css?v=13">
+  <link rel="stylesheet" href="css/nuevo.css?v=14">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -290,9 +290,14 @@
           </a>
         </div>
         <div class="llegar-fotos">
-          <!-- PENDIENTE: reemplazar por las fotos reales del frente y del estacionamiento -->
-          <figure class="ph" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg><figcaption>Frente del salón<small>Foto pendiente</small></figcaption></figure>
-          <figure class="ph" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 17v2M16 17v2"/></svg><figcaption>Estacionamiento<small>Foto pendiente</small></figcaption></figure>
+          <button class="pic" type="button" data-open-id="frente" data-reveal>
+            <img src="img/nuevo/frente.jpg" alt="Frente del salón Eventos Alem sobre Av. Leandro N. Alem" loading="lazy">
+            <span class="collage-tag">Frente del salón</span>
+          </button>
+          <button class="pic" type="button" data-open-id="estacionamiento" data-reveal>
+            <img src="img/nuevo/estacionamiento.jpg" alt="Estacionamiento al costado del salón" loading="lazy">
+            <span class="collage-tag">Estacionamiento</span>
+          </button>
         </div>
       </div>
     </section>
@@ -353,6 +358,6 @@
   </dialog>
 
   <script src="js/site-data.js?v=13"></script>
-  <script src="js/nuevo.js?v=13" defer></script>
+  <script src="js/nuevo.js?v=14" defer></script>
 </body>
 </html>
