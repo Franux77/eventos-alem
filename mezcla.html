@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Eventos Alem · Propuesta mezcla</title>
+  <meta name="description" content="Salón para todo tipo de eventos en Goya, Corrientes: 500 m², 200 personas sentadas o 300 paradas, DJ incluido, show láser, Cielo Dubai, climatizado frío/calor y grupo electrógeno. Consultá tu fecha por WhatsApp.">
+  <meta name="theme-color" content="#050308">
+  <link rel="icon" href="img/marca/ea-blanco.svg" type="image/svg+xml">
+  <script>document.documentElement.className='js'</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Unbounded:wght@500;700;800;900&family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/nuevo.css?v=15">
+  <link rel="stylesheet" href="css/mezcla.css?v=1">
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#inicio" aria-label="Eventos Alem, ir al inicio">
+      <img src="img/marca/logo-horizontal-blanco.svg" alt="Eventos Alem" width="190" height="45">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#reels">Videos</a>
+      <a href="#cielo">Cielo Dubai</a>
+      <a href="#experiencia">El salón</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#consultar">Fechas</a>
+      <a href="#llegar">Cómo llegar</a>
+    </nav>
+    <a class="btn btn-neon btn-sm" href="#consultar">Consultar fecha</a>
+  </header>
+
+  <main id="contenido">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="h-hero">
+      <video class="hero-video" src="img/nuevo/v-salon.mp4" poster="img/nuevo/v-salon.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="lasers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-in">
+        <p class="kicker"><span class="dot"></span> Salón para todo tipo de eventos · Goya, Corrientes</p>
+        <h1 id="h-hero" class="hero-title">
+          <span class="t1">Diversión</span>
+          <span class="t2">asegurada</span>
+        </h1>
+        <p class="hero-lead">Para <b>200 personas sentadas o 300 paradas</b>, con DJ incluido, show láser y el nuevo <b class="gold">Cielo Dubai</b>. Vos traé las ganas, el resto lo ponemos nosotros.</p>
+        <div class="hero-cta">
+          <a class="btn btn-neon btn-lg" href="#consultar">Consultar mi fecha</a>
+          <button class="btn btn-glass btn-lg" type="button" data-open="0">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            Ver el salón en video
+          </button>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#reels" aria-label="Bajar a los videos"><span></span></a>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>500 m²</span><i>✦</i><span>DJ incluido</span><i>✦</i><span>Show láser</span><i>✦</i><span class="g">Cielo Dubai</span><i>✦</i><span>200 sentados · 300 parados</span><i>✦</i><span>Sonido envolvente</span><i>✦</i><span>Climatizado frío / calor</span><i>✦</i><span>Grupo electrógeno</span><i>✦</i><span>WiFi</span><i>✦</i><span>Parrilla 150 kg</span><i>✦</i><span>Salón seguro</span><i>✦</i>
+        <span>500 m²</span><i>✦</i><span>DJ incluido</span><i>✦</i><span>Show láser</span><i>✦</i><span class="g">Cielo Dubai</span><i>✦</i><span>200 sentados · 300 parados</span><i>✦</i><span>Sonido envolvente</span><i>✦</i><span>Climatizado frío / calor</span><i>✦</i><span>Grupo electrógeno</span><i>✦</i><span>WiFi</span><i>✦</i><span>Parrilla 150 kg</span><i>✦</i><span>Salón seguro</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- REELS -->
+    <section class="sec" id="reels" aria-labelledby="h-reels">
+      <div class="wrap head-row">
+        <div>
+          <p class="eyebrow pink" data-reveal>En movimiento</p>
+          <h2 id="h-reels" data-reveal>Mirá cómo <span class="neon-pink">se vive</span></h2>
+        </div>
+        <div class="rail-ctrl">
+          <button class="round" type="button" id="railPrev" aria-label="Videos anteriores"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="round" type="button" id="railNext" aria-label="Más videos"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+      <div class="rail" id="rail" tabindex="0" aria-label="Videos del salón. Deslizá para ver más"></div>
+    </section>
+
+    <!-- CIELO DUBAI -->
+    <section class="cielo" id="cielo" aria-labelledby="h-cielo">
+      <video class="cielo-video" src="img/nuevo/v-cielo.mp4" poster="img/nuevo/v-cielo.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <div class="cielo-shade" aria-hidden="true"></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="wrap cielo-in">
+        <span class="badge-gold" data-reveal>✦ Nuevo</span>
+        <h2 id="h-cielo" class="cielo-title" data-reveal>Cielo<br>Dubai</h2>
+        <p class="cielo-lead" data-reveal>Cientos de hilos de luz cálida caen del techo y convierten el salón en un cielo estrellado. La entrada, el vals y las fotos que todos van a subir.</p>
+        <div class="hero-cta" data-reveal>
+          <a class="btn btn-gold btn-lg" href="#consultar">Lo quiero en mi fiesta</a>
+          <button class="btn btn-glass btn-lg" type="button" data-open-id="v-cielo">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            Ver video
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="sec" id="experiencia" aria-labelledby="h-exp">
+      <div class="wrap">
+        <p class="eyebrow cyan" data-reveal>El salón</p>
+        <h2 id="h-exp" data-reveal>Se escucha, se ve<br>y se siente <span class="neon-cyan">distinto</span></h2>
+
+        <div class="bento">
+          <article class="tile tile-sound" data-reveal>
+            <div class="tile-txt">
+              <span class="ico ico-violet"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="14" r="3.2"/><circle cx="12" cy="7.5" r="1.2"/></svg></span>
+              <h3>Sonido envolvente</h3>
+              <p>Parlantes distribuidos a los dos lados de la pista: la música llega pareja a todo el salón y se escucha espectacular, sin aturdir a las mesas.</p>
+            </div>
+            <div class="sound-map" role="img" aria-label="Esquema: parlantes a ambos lados de la pista y el sonido llegando a todo el salón">
+              <span class="spk l1"></span><span class="spk l2"></span><span class="spk r1"></span><span class="spk r2"></span>
+              <span class="wave w1"></span><span class="wave w2"></span><span class="wave w3"></span>
+              <span class="floor">PISTA</span>
+              <span class="dj">DJ</span>
+            </div>
+          </article>
+
+          <button class="tile tile-photo" type="button" data-open-id="pista-globos" data-reveal>
+            <img src="img/nuevo/pista-globos.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><b>Luces y show láser</b><small>Bolas de espejos, barras de luces, láser y pantalla.</small></span>
+          </button>
+
+          <button class="tile tile-photo tile-tall" type="button" data-open-id="dj-cabina" data-reveal>
+            <img src="img/nuevo/dj-cabina.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg></span><b>DJ incluido</b><small>2 cabinas. Armamos la música con vos.</small></span>
+          </button>
+
+          <button class="tile tile-photo" type="button" data-open-id="clima-ventiladores" data-reveal>
+            <img src="img/nuevo/clima-ventiladores.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M4.9 7l14.2 10M4.9 17 19.1 7M9 4l3 2 3-2M9 20l3-2 3 2"/></svg></span><b>Climatizado frío / calor</b><small>Fresco en verano, cálido en invierno.</small></span>
+          </button>
+
+          <button class="tile tile-photo" type="button" data-open-id="entrada-arco" data-reveal>
+            <img src="img/nuevo/entrada-arco.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V11a7 7 0 0 1 14 0v10M9 21v-6h6v6"/></svg></span><b>Entrada de película</b><small>Arco iluminado, alfombra roja y trono.</small></span>
+          </button>
+
+          <button class="tile tile-photo tile-grill" type="button" data-open-id="parrilla" data-reveal>
+            <img src="img/nuevo/parrilla.jpg" alt="" loading="lazy">
+            <span class="tile-cap">
+              <span class="big-num">hasta <span data-count="150">150</span><small>kg</small></span>
+              <b>Parrilla para el asado</b>
+              <small>El carbón o la leña los traés vos, como más te guste.</small>
+            </span>
+          </button>
+
+          <button class="tile tile-photo" type="button" data-open-id="bienvenida" data-reveal>
+            <img src="img/nuevo/bienvenida.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="13" rx="1.5"/><path d="M9 21l3-5 3 5"/></svg></span><b>Cartel de bienvenida</b><small>Con las fotos de los homenajeados, en la entrada.</small></span>
+          </button>
+          <button class="tile tile-photo" type="button" data-open-id="barra" data-reveal>
+            <img src="img/nuevo/barra.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16M6 10v10M18 10v10M8 4h8l-1 6H9z"/></svg></span><b>Barra y frío</b><small>Barra, freezer y heladera exhibidora. Las bebidas las traés vos.</small></span>
+          </button>
+
+          <button class="tile tile-photo" type="button" data-open-id="rincon-fotos" data-reveal>
+            <img src="img/nuevo/rincon-fotos.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-violet"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></span><b>Rincón para fotos</b><small>Fondo brillante, arco de luces y posa tortas.</small></span>
+          </button>
+
+          <button class="tile tile-photo" type="button" data-open-id="mesa-principal" data-reveal>
+            <img src="img/nuevo/mesa-principal.jpg" alt="" loading="lazy">
+            <span class="tile-cap"><span class="ico ico-gold"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span><b>Caminos bordados de regalo</b><small>Con el nombre de los homenajeados, para la mesa principal.</small></span>
+          </button>
+        </div>
+
+        <ul class="stats" data-reveal>
+          <li><b><span data-count="500">500</span> m²</b><span>de salón</span></li>
+          <li><b>2</b><span>cabinas de DJ</span></li>
+          <li><b><span data-count="200">200</span></b><span>personas sentadas</span></li>
+          <li><b><span data-count="300">300</span></b><span>personas paradas</span></li>
+          <li><b>WiFi</b><span>con muy buena conexión</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SEGURIDAD -->
+    <section class="sec" id="fotos" aria-labelledby="h-fotos">
+      <div class="wrap">
+        <div class="head-row">
+          <div>
+            <p class="eyebrow pink" data-reveal>Galería</p>
+            <h2 id="h-fotos" data-reveal>Todo el salón, <span class="neon-pink">de cerca</span></h2>
+          </div>
+          <div class="chips" id="filtros" role="group" aria-label="Filtrar galería">
+            <button type="button" class="chip" aria-pressed="true" data-f="todo">Todo</button>
+            <button type="button" class="chip" aria-pressed="false" data-f="video">Videos</button>
+            <button type="button" class="chip" aria-pressed="false" data-f="pista">Pista y luces</button>
+            <button type="button" class="chip" aria-pressed="false" data-f="deco">Ambientación</button>
+            <button type="button" class="chip" aria-pressed="false" data-f="parrilla">Parrilla y barra</button>
+            <button type="button" class="chip" aria-pressed="false" data-f="seguridad">Seguridad</button>
+          </div>
+        </div>
+      </div>
+      <div class="gal-rail" id="galRail" tabindex="0" aria-label="Galería. Se mueve sola: pasá el mouse o tocala para frenarla y deslizá para ver más">
+        <div class="gal-track" id="galeria"></div>
+      </div>
+      <div class="wrap gal-foot">
+        <button class="round" type="button" id="galPrev" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="gal-bar" aria-hidden="true"><i id="galBar"></i></div>
+        <button class="round" type="button" id="galNext" aria-label="Más fotos"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="gal-count" id="galCount"></span>
+      </div>
+    </section>
+
+    <!-- FECHAS: calendario con disponibilidad real -->
+    <section class="sec seg claro claro-ini" id="seguridad" aria-labelledby="h-seg">
+      <div class="wrap seg-grid">
+        <div class="seg-txt">
+          <p class="eyebrow green" data-reveal>Salón seguro</p>
+          <h2 id="h-seg" data-reveal>Vos festejá.<br><span class="neon-green">Nosotros cuidamos.</span></h2>
+          <p class="lead" data-reveal>Un salón preparado de verdad. Si es la fiesta de 15 de tu hija o el evento de tu empresa, sabés que todos están en un lugar seguro. Y si se corta la luz, la fiesta sigue.</p>
+          <ul class="checks">
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7h6v13H9zM10 7V4h4l3 2M12 4V2M9 11h6"/></svg></span><div><b>Matafuegos por todo el salón</b><small>Distribuidos y a la vista.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></span><div><b>Plano de evacuación</b><small>Salidas y puntos de encuentro marcados.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h10v16H4zM14 12h7M18 9l3 3-3 3"/></svg></span><div><b>Salidas señalizadas</b><small>Carteles claros y recomendaciones.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM9 8h6M9 12h6M9 16h3"/></svg></span><div><b>Plan de emergencia</b><small>Roles asignados y teléfonos de bomberos, policía y hospital a la vista.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><div><b>Grupo electrógeno</b><small>Si se corta la luz, siguen las luces de bajo consumo y el equipo de sonido. El evento continúa.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Seguridad en la puerta</b><small>2 personas propias y capacitadas.</small></div></li>
+          </ul>
+        </div>
+        <button class="pic collage" type="button" data-open-id="seg-plano-evacuacion" data-reveal>
+          <img src="img/nuevo/collage-seguridad.jpg" alt="Collage: plano de evacuación, matafuegos y plan de emergencia del salón" loading="lazy">
+          <span class="collage-tag">Ver las 4 fotos</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FOTOS -->
+    <section class="sec consultar claro" id="consultar" aria-labelledby="h-cons">
+      <div class="wrap">
+        <p class="eyebrow cyan" data-reveal>Fechas</p>
+        <h2 id="h-cons" data-reveal>Elegí tu <span class="neon-cyan">fecha</span></h2>
+        <p class="lead" data-reveal>Mirá qué días están libres y consultá con un toque. Los días ocupados no se pueden elegir.</p>
+        <div class="cal-wrap">
+          <div class="cal" id="cal" data-reveal>
+            <div class="cal-head">
+              <button class="round" type="button" id="calPrev" aria-label="Mes anterior"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <h3 class="cal-mes" id="calMes" aria-live="polite">Cargando…</h3>
+              <button class="round" type="button" id="calNext" aria-label="Mes siguiente"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+            <div class="cal-dow" aria-hidden="true"><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span></div>
+            <div class="cal-grid" id="calGrid" role="group" aria-label="Días del mes"></div>
+            <ul class="cal-ley" aria-label="Referencias">
+              <li><i class="k k-libre"></i>Disponible</li>
+              <li><i class="k k-res"></i>Ocupada</li>
+              <li><i class="k k-hoy"></i>Hoy</li>
+            </ul>
+            <p class="cal-estado" id="calEstado" role="status"></p>
+          </div>
+          <div class="sel" id="sel" aria-live="polite"></div>
+        </div>
+        <ol class="steps steps-row">
+          <li data-reveal><span>01</span><div><b>Elegí un día libre</b><small>Y escribinos por WhatsApp con el mensaje armado.</small></div></li>
+          <li data-reveal><span>02</span><div><b>Vení a conocer el salón</b><small>Lo recorrés con las luces encendidas.</small></div></li>
+          <li data-reveal><span>03</span><div><b>Reservá con una seña</b><small>Firmás el acuerdo y la fecha es tuya.</small></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TODO LO QUE INCLUYE (misma lista que la versión original) -->
+    <section class="sec claro" id="incluye" aria-labelledby="h-inc">
+      <div class="wrap">
+        <p class="eyebrow pink" data-reveal>Servicios</p>
+        <h2 id="h-inc" data-reveal>Todo lo que <span class="neon-pink">incluye</span></h2>
+        <div class="ficha" id="ficha"></div>
+      </div>
+    </section>
+
+    <!-- CÓMO LLEGAR -->
+    <section class="sec claro" id="llegar" aria-labelledby="h-llegar">
+      <div class="wrap llegar-grid">
+        <div>
+          <p class="eyebrow pink" data-reveal>Cómo llegar</p>
+          <h2 id="h-llegar" data-reveal>Te esperamos<br>en <span class="neon-pink">Goya</span></h2>
+          <p class="lead" id="llegarDir" data-reveal>Av. Leandro N. Alem 1171, Goya, Corrientes.</p>
+          <ul class="checks" data-reveal>
+            <li><span class="ico ico-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 17v2M16 17v2M9 12V8h6v4"/></svg></span><div><b>Estacionamiento</b><small>Para motos y algunos autos. Hay más lugar sobre la calle.</small></div></li>
+            <li><span class="ico ico-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></span><div><b>WiFi</b><small>Con muy buena conexión.</small></div></li>
+          </ul>
+          <a class="btn btn-glass btn-lg" id="llegarMapa" href="https://maps.app.goo.gl/anK89E7FHTiRz1Bk8" target="_blank" rel="noopener" data-reveal>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            Abrir en Google Maps
+          </a>
+        </div>
+        <div class="llegar-fotos">
+          <button class="pic" type="button" data-open-id="frente" data-reveal>
+            <img src="img/nuevo/frente.jpg" alt="Frente del salón Eventos Alem sobre Av. Leandro N. Alem" loading="lazy">
+            <span class="collage-tag">Frente del salón</span>
+          </button>
+          <button class="pic" type="button" data-open-id="estacionamiento" data-reveal>
+            <img src="img/nuevo/estacionamiento.jpg" alt="Estacionamiento al costado del salón" loading="lazy">
+            <span class="collage-tag">Estacionamiento</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec claro claro-fin" id="preguntas" aria-labelledby="h-faq">
+      <div class="wrap faq-grid">
+        <h2 id="h-faq" data-reveal>Preguntas</h2>
+        <div class="faq" id="faqLista">
+          <details data-reveal><summary>¿El DJ está incluido?<i></i></summary><p>Sí. El DJ está incluido y el salón tiene 2 cabinas.</p></details>
+          <details data-reveal><summary>¿Qué es el Cielo Dubai?<i></i></summary><p>Una cortina de cientos de luces cálidas que cuelga del techo sobre todo el salón. Ideal para la entrada, el vals y las fotos.</p></details>
+          <details data-reveal><summary>¿Qué tan seguro es el salón?<i></i></summary><p>Hay matafuegos por todo el salón, plano de evacuación con salidas y puntos de encuentro, cartelería de emergencia y 2 personas de seguridad propia en la entrada.</p></details>
+          <details data-reveal><summary>¿Hace calor en verano o frío en invierno?<i></i></summary><p>No. El salón está climatizado frío / calor.</p></details>
+          <details data-reveal><summary>¿Qué pasa si se corta la luz?<i></i></summary><p>La fiesta sigue. El grupo electrógeno mantiene las luces de bajo consumo y el equipo de sonido.</p></details>
+          <details data-reveal><summary>¿Cuántas personas entran?<i></i></summary><p>200 personas sentadas o 300 paradas.</p></details>
+          <details data-reveal><summary>¿La parrilla incluye carbón o leña?<i></i></summary><p>No. La parrilla carga hasta 150 kg de carne y el carbón o la leña los traés vos, como más te guste.</p></details>
+          <details data-reveal><summary>¿Hay WiFi?<i></i></summary><p>Sí. El salón tiene WiFi con muy buena conexión.</p></details>
+          <details data-reveal><summary>¿Tengo que traer las bebidas?<i></i></summary><p>Sí. La barra es sin bebidas: las traés vos. Hay freezer y heladera exhibidora.</p></details>
+          <details data-reveal><summary>¿Puedo ir a conocer el salón antes?<i></i></summary><p>Sí. Coordinamos por WhatsApp un día y horario para que lo recorras.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="final" aria-labelledby="h-final">
+      <div class="lasers lasers-final" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <img class="final-logo" src="img/marca/logo-blanco-brillo.svg" alt="Eventos Alem, que tu fiesta suene como merece" width="300" height="258" loading="lazy">
+      <h2 id="h-final" data-reveal>¿Ya tenés <span class="neon-pink">fecha</span>?</h2>
+      <p data-reveal>Las fechas de temporada se van rápido.</p>
+      <a class="btn btn-neon btn-lg" href="#consultar" data-reveal>Consultar disponibilidad</a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <img src="img/marca/logo-horizontal-blanco.svg" alt="Eventos Alem, Diversión asegurada" width="210" height="50" loading="lazy">
+      <p class="foot-links" id="footContacto">Salón de eventos · Goya, Corrientes</p>
+      <p class="muted">© 2026 Eventos Alem · Diversión asegurada</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="#consultar" id="fab" aria-label="Consultar por WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+  </a>
+
+  <!-- VISOR -->
+  <dialog class="visor" id="visor" aria-labelledby="visorTit">
+    <div class="v-top">
+      <p class="v-tit"><strong id="visorTit"></strong> <span id="visorCount"></span></p>
+      <button class="round" type="button" id="visorClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="v-stage">
+      <div class="v-track" id="visorTrack" tabindex="0"></div>
+      <button class="round v-nav v-prev" type="button" id="visorPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="round v-nav v-next" type="button" id="visorNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="v-thumbs" id="visorThumbs"></div>
+  </dialog>
+
+  <script src="js/site-data.js?v=15"></script>
+  <script src="js/nuevo.js?v=14" defer></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* PROPUESTA MEZCLA v2 — neón para la fiesta, clásico CLARO para la información.
+   Se carga después de nuevo.css solo en mezcla.html. */
+.claro{
+  --paper:#F6F3EE; --ink:#17141C; --card:#FFFFFF; --line:rgba(23,20,28,.1);
+  --muted:#4A4652; --soft:#6E6878; --acc:#C2186B;
+  --display:"Bricolage Grotesque",Georgia,serif;
+  background:var(--paper); color:var(--ink);
+}
+.claro-ini{margin-top:clamp(80px,11vw,140px);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0}
+.claro-fin{padding-bottom:clamp(80px,11vw,140px);border-radius:0 0 clamp(28px,4vw,48px) clamp(28px,4vw,48px)}
+.claro h2{text-transform:none;font-weight:700;letter-spacing:-.035em;line-height:1.02;font-size:clamp(36px,5.2vw,70px);color:var(--ink)}
+.claro h3{letter-spacing:-.02em}
+.claro .neon-pink,.claro .neon-cyan,.claro .neon-green{color:var(--acc);text-shadow:none;font-style:italic}
+.claro .eyebrow{color:var(--acc)!important;letter-spacing:.18em}
+.claro .lead,.claro p{color:var(--muted)}
+.claro .ico{background:rgba(194,24,107,.08);color:var(--acc);box-shadow:inset 0 0 0 1px rgba(194,24,107,.25)}
+.claro .checks li{background:var(--card);box-shadow:0 1px 2px rgba(23,20,28,.06)}
+.claro .checks li:hover{border-color:rgba(194,24,107,.35);box-shadow:0 8px 24px rgba(23,20,28,.08)}
+.claro .checks b{color:var(--ink)}
+.claro .steps span{-webkit-text-stroke:1.5px var(--acc);text-shadow:none}
+.claro .steps b{color:var(--ink)}
+.claro .btn-glass{background:var(--ink);color:#fff;border:0;backdrop-filter:none}
+.claro .btn-glass:hover{background:#000}
+.claro .round{border-color:var(--line);background:#fff;color:var(--ink)}
+.claro .round:hover{border-color:var(--ink);background:#fff}
+.claro .collage{box-shadow:0 10px 30px rgba(23,20,28,.12)}
+.claro .collage-tag{color:#fff;box-shadow:none}
+/* calendario */
+.claro .cal{background:var(--card);border:1px solid var(--line);box-shadow:0 20px 50px rgba(23,20,28,.08)}
+.claro .cal-mes{color:var(--ink)}
+.claro .cal-dow{color:var(--soft)}
+.claro .dia{color:var(--ink)}
+.claro .dia.libre{background:rgba(22,163,74,.08);border-color:rgba(21,128,61,.35);color:#14532D}
+.claro .dia.libre:hover{background:rgba(22,163,74,.16);box-shadow:none}
+.claro .dia.res{background:rgba(185,28,28,.07);border-color:rgba(185,28,28,.3);color:#B91C1C}
+.claro .dia.pasado{color:rgba(23,20,28,.25)}
+.claro .dia[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:none}
+.claro .dia.hoy::after,.claro .k-hoy{background:var(--acc);box-shadow:none}
+.claro .k-libre{background:rgba(22,163,74,.2);border-color:#15803D}
+.claro .k-res{background:rgba(185,28,28,.15);border-color:#B91C1C}
+.claro .cal-ley{color:var(--muted)}
+.claro .cal-skel{background:linear-gradient(90deg,rgba(23,20,28,.04),rgba(23,20,28,.09),rgba(23,20,28,.04));background-size:200% 100%}
+.claro .sel{background:var(--card);box-shadow:0 20px 50px rgba(23,20,28,.08)}
+.claro .sel h3,.claro .sel-fecha{color:var(--ink)!important}
+.claro .sel-nota{background:rgba(217,119,6,.1);color:#7C4A03!important}
+.claro .badge-ok{background:rgba(22,163,74,.1);color:#15803D;box-shadow:inset 0 0 0 1px rgba(21,128,61,.35)}
+.claro .sel input,.claro .sel textarea{background:#fff;color:var(--ink);border-color:rgba(23,20,28,.2);color-scheme:light}
+.claro .sel input:focus,.claro .sel textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(194,24,107,.15)}
+.claro .link-btn{color:var(--muted)}.claro .link-btn:hover{color:var(--ink)}
+.claro .err{color:#B91C1C}
+/* servicios */
+.claro .ficha-g{background:var(--card);box-shadow:0 1px 2px rgba(23,20,28,.05)}
+.claro .ficha-g h3{color:var(--acc);text-transform:none;letter-spacing:-.01em;font-size:21px}
+.claro .ficha-g b{color:var(--ink)}
+.claro .ficha-v{background:rgba(23,20,28,.06);color:var(--ink)}
+/* preguntas */
+.claro .faq summary{color:var(--ink)}
+.claro .faq summary i{border-color:rgba(23,20,28,.25)}
+.claro .faq summary i::before,.claro .faq summary i::after{background:var(--ink)}
+.claro .faq details[open] summary i{background:var(--acc);border-color:var(--acc)}
+.claro .faq details[open] summary i::before,.claro .faq details[open] summary i::after{background:#fff}
+.claro .chip{border-color:rgba(23,20,28,.22);color:var(--ink)}
+.claro .chip:hover{border-color:var(--ink)}
+.claro .chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff;box-shadow:none}
