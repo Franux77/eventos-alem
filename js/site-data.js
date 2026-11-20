@@ -33,7 +33,7 @@ window.SITE = {
 
   ficha: [
     { grupo: "Espacio", items: [
-      { nombre: "Salón para todo tipo de eventos", nota: "15 años, cumpleaños, empresas y lo que quieras festejar." },
+      { nombre: "Salón para todo tipo de eventos", nota: "Casamientos, 15 años, cumpleaños infantiles y de adultos, egresados, bautismos, empresas y lo que quieras festejar." },
       { nombre: "Superficie del salón", valor: "500 m²" },
       { nombre: "Personas sentadas", valor: "200" },
       { nombre: "Personas paradas", valor: "300" }
@@ -41,8 +41,10 @@ window.SITE = {
     { grupo: "Música y luces", items: [
       { nombre: "Cielo Dubai", valor: "Nuevo", nota: "Cortina de cientos de luces cálidas sobre el salón." },
       { nombre: "Sonido con 2 cabinas de DJ", valor: "DJ incluido" },
-      { nombre: "Pista con bola, barras de luces y show láser" },
-      { nombre: "Pantalla de proyección", nota: "Proyecta sobre la pared, montada en la estructura." },
+      { nombre: "Estructura truss de iluminación" },
+      { nombre: "Luces robóticas LED" },
+      { nombre: "Show láser" },
+      { nombre: "Pantalla grande" },
       { nombre: "Sonido envolvente", nota: "Parlantes distribuidos a los dos lados de la pista." }
     ]},
     { grupo: "Parrilla y barra", items: [
@@ -61,13 +63,13 @@ window.SITE = {
       { nombre: "Plano de evacuación", nota: "Con salidas y puntos de encuentro marcados." },
       { nombre: "Salidas señalizadas y cartelería", nota: "Con recomendaciones para cada caso." },
       { nombre: "Plan de emergencia", nota: "Roles asignados y teléfonos de bomberos, policía y hospital." },
-      { nombre: "Seguridad en la entrada", valor: "2 personas", nota: "Propias, autorizadas y capacitadas." }
+      { nombre: "Seguridad en la entrada", nota: "Personal propio, autorizado y capacitado." }
     ]},
     { grupo: "Ambientación", items: [
-      { nombre: "Mesas, sillas y manteles blanco y negro" },
-      { nombre: "Cubre sillas", nota: "Si los necesitás. Muchas veces lo resuelve el catering." },
+      { nombre: "Mesas y sillas" },
+      { nombre: "Manteles y cubre sillas", valor: "Servicio adicional", nota: "Se alquilan aparte. Consultanos por WhatsApp." },
       { nombre: "Arco de entrada" },
-      { nombre: "Alfombra roja", nota: "Opcional, para armar el camino de entrada." },
+      { nombre: "2 alfombras rojas", valor: "Incluidas", nota: "Una para la entrada principal y otra para las visitas." },
       { nombre: "Caminos de mesa bordados", valor: "De regalo", nota: "Con el nombre de los homenajeados, para la mesa principal." },
       { nombre: "Rincón para fotos", nota: "Fondo brillante, arco de luces y posa tortas." }
     ]},
@@ -77,13 +79,14 @@ window.SITE = {
   ],
 
   faq: [
-    { p: "¿Qué eventos se pueden hacer?", r: "Todo tipo de eventos: 15 años, cumpleaños, fiestas de empresa y lo que quieras festejar." },
+    { p: "¿Qué eventos se pueden hacer?", r: "Todo tipo de eventos: casamientos, 15 años, cumpleaños infantiles y de adultos, egresados, bautismos, fiestas de empresa y lo que quieras festejar." },
     { p: "¿Cuántas personas entran?", r: "200 personas sentadas o 300 paradas." },
     { p: "¿El DJ está incluido?", r: "Sí. El DJ está incluido y el salón tiene 2 cabinas." },
     { p: "¿Qué es el Cielo Dubai?", r: "Una cortina de cientos de luces cálidas que cuelga del techo sobre el salón. Ideal para la entrada, el vals y las fotos." },
     { p: "¿Hace calor en verano o frío en invierno?", r: "No. El salón está climatizado frío / calor, así que se está cómodo en cualquier época del año." },
     { p: "¿Qué pasa si se corta la luz?", r: "La fiesta sigue. El salón tiene grupo electrógeno que mantiene funcionando las luces de bajo consumo y el equipo de sonido." },
-    { p: "¿Qué tan seguro es el salón?", r: "Hay matafuegos por todo el salón, plano de evacuación con salidas y puntos de encuentro, cartelería, plan de emergencia y 2 personas de seguridad propia en la entrada." },
+    { p: "¿Qué tan seguro es el salón?", r: "Hay matafuegos por todo el salón, plano de evacuación con salidas y puntos de encuentro, cartelería, plan de emergencia y personal de seguridad propio en la entrada." },
+    { p: "¿Los manteles y cubre sillas están incluidos?", r: "Las mesas y sillas están incluidas. Los manteles y cubre sillas son un servicio adicional: se alquilan aparte, consultanos por WhatsApp." },
     { p: "¿Tengo que traer las bebidas?", r: "Sí. La barra es sin bebidas: las traés vos. Hay freezer y heladera exhibidora." },
     { p: "¿Puedo hacer un asado?", r: "Sí. La parrilla carga hasta 150 kg de carne. El carbón o la leña los traés vos, como más te guste." },
     { p: "¿Hay WiFi?", r: "Sí. El salón tiene WiFi con muy buena conexión." },

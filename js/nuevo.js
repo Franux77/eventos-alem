@@ -356,17 +356,20 @@
     b.addEventListener('click', function () { openVisor(idx(b.dataset.openId)); });
   });
 
-  // ---------- Calendario con disponibilidad (misma base que la web original) ----------
+  // ---------- Calendario: el cliente elige el día que tiene pensado y consulta por WhatsApp ----------
+  // No muestra días ocupados: el dueño confirma la disponibilidad por WhatsApp.
   var TZ = 'America/Argentina/Buenos_Aires';
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   var TIPOS = [
+    { id: 'casamiento', nombre: 'Casamiento', msg: 'un casamiento' },
     { id: 'quince', nombre: '15 años', msg: 'una fiesta de 15 años' },
     { id: 'cumple', nombre: 'Cumpleaños', msg: 'un cumpleaños' },
+    { id: 'infantil', nombre: 'Cumple infantil', msg: 'un cumpleaños infantil' },
     { id: 'empresa', nombre: 'Empresa', msg: 'un evento de empresa' },
     { id: 'otros', nombre: 'Otro', msg: 'un evento' }
   ];
-  var cal = { hoy: '', mapa: {}, mes: 0, meses: 18, sel: '', tipo: '', inv: '', nombre: '' };
+  var cal = { hoy: '', mes: 0, meses: 18, sel: '', tipo: '', inv: '' };
   var $ = function (s) { return document.querySelector(s); };
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function iso(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
@@ -374,24 +377,7 @@
   function hoyISO() { return new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(new Date()); }
   function fechaLarga(s) { var d = parseISO(s); return DIAS[d.getDay()] + ' ' + d.getDate() + ' de ' + MESES[d.getMonth()] + ' de ' + d.getFullYear(); }
   function sumarMeses(s, n) { var d = parseISO(s); d.setMonth(d.getMonth() + n); return iso(d.getFullYear(), d.getMonth(), d.getDate()); }
-  function hayApi() { var a = S.api || {}; return !!(a.url && a.anonKey); }
-  function confirmadas() { return hayApi() || !!(S.calendario || {}).verificado; }
-
-  function pedirCalendario() {
-    if (!hayApi()) return Promise.resolve({ ok: true, mapa: (S.calendario || {}).fechas || {} });
-    var ctl = window.AbortController ? new AbortController() : null;
-    var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
-    return fetch(String(S.api.url).replace(/\/$/, '') + '/rest/v1/rpc/calendario_publico', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', apikey: S.api.anonKey, Authorization: 'Bearer ' + S.api.anonKey },
-      body: JSON.stringify({ desde: cal.hoy, hasta: sumarMeses(cal.hoy, cal.meses) }),
-      signal: ctl ? ctl.signal : undefined
-    }).then(function (r) { clearTimeout(t); if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
-      .then(function (rows) { var m = {}; (rows || []).forEach(function (r) { m[r.fecha] = r.estado; }); return { ok: true, mapa: m }; })
-      .catch(function () { clearTimeout(t); return { ok: false }; });
-  }
-  function estadoDe(f) { if (f < cal.hoy) return 'pasado'; return cal.mapa[f] ? 'res' : 'libre'; }
-  var ETQ = { libre: 'disponible', res: 'ocupada', pasado: 'ya pasó' };
+  function estadoDe(f) { return f < cal.hoy ? 'pasado' : 'libre'; }
 
   function renderMes() {
     var base = parseISO(cal.hoy);
@@ -402,7 +388,7 @@
     for (var d = 1; d <= dias; d++) {
       var f = iso(y, m, d), est = estadoDe(f), off = est !== 'libre';
       h += '<button type="button" class="dia ' + est + (f === cal.hoy ? ' hoy' : '') + '" data-f="' + f + '"' + (off ? ' disabled' : '') +
-        ' aria-pressed="' + (f === cal.sel) + '" aria-label="' + esc(fechaLarga(f) + ', ' + ETQ[est]) + '">' + d + '</button>';
+        ' aria-pressed="' + (f === cal.sel) + '" aria-label="' + esc(fechaLarga(f) + (off ? ', ya pasó' : '')) + '">' + d + '</button>';
     }
     $('#calGrid').innerHTML = h;
     $('#calMes').textContent = MESES[m] + ' ' + y;
@@ -411,44 +397,34 @@
   }
   function mensajeWa() {
     var o = TIPOS.filter(function (t) { return t.id === cal.tipo; })[0];
-    var quien = cal.nombre ? 'Soy ' + cal.nombre + '. ' : '';
-    if (!cal.sel) return '¡Hola! ' + quien + 'Quiero coordinar una fecha para el salón.';
-    return '¡Hola! ' + quien + 'Quiero coordinar el salón para el ' + fechaLarga(cal.sel) + (o ? ' para ' + o.msg : '') +
-      (cal.inv ? ', somos unas ' + cal.inv + ' personas' : '') + '. ' + (confirmadas() ? '¿Cuándo podemos hablar?' : '¿Me confirman la fecha?');
+    if (!cal.sel) return '¡Hola! Quiero consultar una fecha para el salón.';
+    return '¡Hola! Quiero consultar si el salón está disponible el ' + fechaLarga(cal.sel) + (o ? ' para ' + o.msg : '') +
+      (cal.inv ? '. Seríamos unas ' + cal.inv + ' personas' : '') + '. ¡Gracias!';
   }
   function waHref(t) { return waUrl(t) || '#consultar'; }
   function renderSel() {
     var box = $('#sel');
     if (!cal.sel) {
       box.innerHTML = '<div class="sel-vacio"><span class="ico ico-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>' +
-        '<h3>Tocá un día libre</h3><p>Te mostramos si está disponible y te armamos el mensaje para WhatsApp.</p>' +
-        '<a class="btn btn-glass" href="' + esc(waHref(mensajeWa())) + '" target="_blank" rel="noopener">¿No encontrás tu fecha? Escribinos</a></div>';
+        '<h3>Tocá el día de tu evento</h3><p>Te armamos el mensaje para WhatsApp y te confirmamos si la fecha está disponible.</p>' +
+        '<a class="btn btn-glass" href="' + esc(waHref(mensajeWa())) + '" target="_blank" rel="noopener">Escribinos por WhatsApp</a></div>';
       return;
     }
     var aviso = (S.calendario || {}).avisoMeses || 6;
     var lejos = parseISO(cal.sel) > parseISO(sumarMeses(cal.hoy, aviso));
     box.innerHTML = '<div class="sel-in">' +
-      '<span class="badge-ok">' + (confirmadas() ? '● Disponible' : 'A confirmar') + '</span>' +
+      '<span class="badge-ok">Fecha elegida</span>' +
       '<p class="sel-fecha">' + esc(fechaLarga(cal.sel)) + '</p>' +
+      '<p class="sel-txt">Mandanos el mensaje y te confirmamos si está disponible.</p>' +
       (lejos ? '<p class="sel-nota">Con más de ' + aviso + ' meses de anticipación se reserva con una seña y el precio final se confirma más adelante.</p>' : '') +
       '<fieldset><legend>¿Qué festejás? <small>(opcional)</small></legend><div class="chips" id="selTipos">' +
       TIPOS.map(function (t) { return '<button type="button" class="chip" data-t="' + t.id + '" aria-pressed="' + (t.id === cal.tipo) + '">' + t.nombre + '</button>'; }).join('') +
       '</div></fieldset>' +
       '<label class="sel-lbl">¿Cuántas personas? <small>(opcional)</small><input id="selInv" type="number" inputmode="numeric" min="1" max="1000" placeholder="Ej: 120" value="' + esc(cal.inv) + '"></label>' +
       '<a class="btn btn-wa btn-lg" id="selWa" href="' + esc(waHref(mensajeWa())) + '" target="_blank" rel="noopener">' +
-      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Consultar por WhatsApp</span></a>' +
-      (hayApi() ? '<button type="button" class="link-btn" id="selForm">Prefiero dejar mi consulta</button>' + formHtml() : '') +
+      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Enviar por WhatsApp</span></a>' +
       '</div>';
     wireSel();
-  }
-  function formHtml() {
-    return '<form id="consultaForm" class="cform" hidden novalidate>' +
-      '<label class="sel-lbl">Tu nombre<input id="cfNombre" autocomplete="name" maxlength="80" required></label><p class="err" id="eNombre" hidden></p>' +
-      '<label class="sel-lbl">Tu WhatsApp o teléfono<input id="cfTel" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required></label><p class="err" id="eTel" hidden></p>' +
-      '<label class="sel-lbl">Mensaje <small>(opcional)</small><textarea id="cfMsg" maxlength="500"></textarea></label>' +
-      '<label class="hp" aria-hidden="true">No completar<input name="web" tabindex="-1" autocomplete="off"></label>' +
-      '<button type="submit" class="btn btn-neon btn-lg" id="cfEnviar">Enviar consulta</button>' +
-      '<p class="err" id="cfError" role="alert" hidden></p></form>';
   }
   function wireSel() {
     document.querySelectorAll('#selTipos .chip').forEach(function (b) {
@@ -463,54 +439,12 @@
     $('#selWa').addEventListener('click', function (e) {
       if (!waUrl('x')) { e.preventDefault(); alert('Falta cargar el número de WhatsApp del salón.\n\nMensaje:\n' + mensajeWa()); }
     });
-    var btn = $('#selForm'), form = $('#consultaForm');
-    if (btn && form) {
-      btn.addEventListener('click', function () { form.hidden = !form.hidden; btn.textContent = form.hidden ? 'Prefiero dejar mi consulta' : 'Ocultar formulario'; if (!form.hidden) $('#cfNombre').focus(); });
-      form.addEventListener('submit', enviarConsulta);
-    }
-  }
-  function marcar(input, errEl, msg) { input.setAttribute('aria-invalid', msg ? 'true' : 'false'); errEl.hidden = !msg; errEl.textContent = msg || ''; }
-  function enviarConsulta(ev) {
-    ev.preventDefault();
-    var form = ev.target, nombre = $('#cfNombre').value.trim(), tel = $('#cfTel').value.trim();
-    var okN = nombre.length >= 2, okT = tel.replace(/\D/g, '').length >= 6;
-    marcar($('#cfNombre'), $('#eNombre'), okN ? '' : 'Escribí tu nombre.');
-    marcar($('#cfTel'), $('#eTel'), okT ? '' : 'Escribí un número con código de área, ej: 3777 123456.');
-    if (!okN || !okT) { (okN ? $('#cfTel') : $('#cfNombre')).focus(); return; }
-    cal.nombre = nombre;
-    var o = TIPOS.filter(function (t) { return t.id === cal.tipo; })[0];
-    var data = { nombre: nombre, telefono: tel, mensaje: $('#cfMsg').value.trim(), web: form.elements.web.value,
-      fecha: cal.sel, estado_fecha: estadoDe(cal.sel), tipo: o ? o.nombre : '', invitados: cal.inv };
-    var env = $('#cfEnviar'), err = $('#cfError');
-    env.disabled = true; env.textContent = 'Enviando…'; err.hidden = true;
-    function listo() {
-      $('#sel').innerHTML = '<div class="sel-in"><span class="badge-ok">✓ Enviada</span><h3>¡Listo, ' + esc(nombre) + '!</h3>' +
-        '<p>Recibimos tu consulta. Te escribimos al ' + esc(tel) + ' por el ' + esc(fechaLarga(cal.sel)) + '.</p>' +
-        '<a class="btn btn-wa btn-lg" href="' + esc(waHref(mensajeWa())) + '" target="_blank" rel="noopener">Escribir por WhatsApp</a></div>';
-    }
-    if (data.web) { listo(); return; }
-    fetch(String(S.api.url).replace(/\/$/, '') + '/functions/v1/nueva-consulta', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', apikey: S.api.anonKey, Authorization: 'Bearer ' + S.api.anonKey },
-      body: JSON.stringify(data)
-    }).then(function (r) { if (!r.ok) throw new Error('http ' + r.status); listo(); })
-      .catch(function () { env.disabled = false; env.textContent = 'Enviar consulta'; err.hidden = false; err.textContent = 'No pudimos enviar tu consulta. Probá de nuevo o escribinos por WhatsApp.'; });
   }
   function initCal() {
     cal.hoy = hoyISO();
     cal.meses = Math.max(1, Math.min(24, (S.calendario || {}).mesesAdelante || 18));
-    $('#calGrid').innerHTML = '<div class="cal-skel" aria-hidden="true"></div>';
-    $('#calEstado').textContent = 'Cargando fechas…';
+    renderMes();
     renderSel();
-    pedirCalendario().then(function (r) {
-      if (!r.ok) {
-        // Nunca mostramos días libres si no pudimos confirmarlos
-        $('#cal').innerHTML = '<p class="err" role="alert">No pudimos cargar las fechas ahora. Consultá la disponibilidad por WhatsApp y te respondemos enseguida.</p>';
-        return;
-      }
-      cal.mapa = r.mapa;
-      $('#calEstado').textContent = confirmadas() ? '' : 'Te confirmamos la fecha por WhatsApp.';
-      renderMes();
-    });
     $('#calPrev').addEventListener('click', function () { cal.mes = Math.max(0, cal.mes - 1); renderMes(); });
     $('#calNext').addEventListener('click', function () { cal.mes = Math.min(cal.meses - 1, cal.mes + 1); renderMes(); });
     $('#calGrid').addEventListener('click', function (e) {
@@ -521,6 +455,59 @@
     });
   }
   initCal();
+
+  // ---------- Fotos y videos de eventos (los sube el dueño desde el panel) ----------
+  // Tabla "fotos" de Supabase. tipos: quince, casamiento, cumple, infantil, empresa, otros...
+  // Si el archivo es .mp4 se muestra como video (path_min es la portada).
+  var EV_NOMBRES = { quince: '15 años', casamiento: 'Casamientos', cumple: 'Cumpleaños', infantil: 'Infantiles', empresa: 'Empresas', egresados: 'Egresados' };
+  (function cargarEventos() {
+    var sec = document.getElementById('eventos');
+    if (!sec || !S.api || !S.api.url || !S.api.anonKey) return;
+    var base = String(S.api.url).replace(/\/$/, '');
+    var pub = base + '/storage/v1/object/public/galeria/';
+    function url(p) { return pub + String(p).split('/').map(encodeURIComponent).join('/'); }
+    fetch(base + '/rest/v1/fotos?select=id,tipos,titulo,alt,path,path_min&order=orden.asc,created_at.desc&limit=200',
+      { headers: { apikey: S.api.anonKey, Authorization: 'Bearer ' + S.api.anonKey } })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (filas) {
+        filas = (filas || []).filter(function (f) { return f && f.path; });
+        if (!filas.length) return;
+        var grid = document.getElementById('evGrid'), chips = document.getElementById('evFiltros');
+        var usados = [];
+        filas.forEach(function (f) {
+          var esVideo = /\.mp4$/i.test(f.path);
+          var tipos = (f.tipos || []).filter(function (t) { return EV_NOMBRES[t]; });
+          tipos.forEach(function (t) { if (usados.indexOf(t) < 0) usados.push(t); });
+          var titulo = f.titulo || (tipos[0] ? EV_NOMBRES[tipos[0]] : 'Evento en el salón');
+          var m = { id: 'ev-' + f.id, tipo: esVideo ? 'video' : 'foto', titulo: titulo, sub: '', alt: f.alt || titulo, tags: tipos,
+            src: url(f.path), poster: url(f.path_min || f.path) };
+          MEDIA.push(m);
+          var b = el('button', { type: 'button', class: 'ev-item', 'data-tags': tipos.join(' '), 'aria-label': (esVideo ? 'Ver video: ' : 'Ver foto: ') + titulo });
+          b.appendChild(el('img', { src: m.poster, alt: m.alt, loading: 'lazy' }));
+          if (esVideo) b.insertAdjacentHTML('beforeend', PLAY);
+          b.appendChild(el('span', { class: 'g-cap' }, esc(titulo)));
+          b.addEventListener('click', function () { openVisor(MEDIA.indexOf(m)); });
+          grid.appendChild(b);
+        });
+        // Si el visor ya se armó, se rearma con las fotos nuevas
+        if (built) { track.innerHTML = ''; thumbs.innerHTML = ''; built = false; }
+        var orden = ['casamiento', 'quince', 'cumple', 'infantil', 'egresados', 'empresa'];
+        usados.sort(function (a, b) { return orden.indexOf(a) - orden.indexOf(b); });
+        if (usados.length > 1) {
+          chips.innerHTML = '<button type="button" class="chip" aria-pressed="true" data-f="todo">Todos</button>' +
+            usados.map(function (t) { return '<button type="button" class="chip" aria-pressed="false" data-f="' + t + '">' + EV_NOMBRES[t] + '</button>'; }).join('');
+          chips.addEventListener('click', function (e) {
+            var c = e.target.closest('.chip'); if (!c) return;
+            chips.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === c)); });
+            grid.querySelectorAll('.ev-item').forEach(function (it) {
+              it.hidden = c.dataset.f !== 'todo' && it.dataset.tags.split(' ').indexOf(c.dataset.f) < 0;
+            });
+          });
+        }
+        sec.hidden = false;
+        var navEv = document.getElementById('navEventos'); if (navEv) navEv.hidden = false;
+      }).catch(function () {});
+  })();
 
   // ---------- Todo lo que incluye (sale de la misma ficha que usa la versión original) ----------
   (function renderFicha() {

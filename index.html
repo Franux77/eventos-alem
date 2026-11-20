@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Unbounded:wght@500;700;800;900&family=Outfit:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/nuevo.css?v=15">
+  <link rel="stylesheet" href="css/mezcla.css?v=2">
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -26,6 +27,7 @@
       <a href="#cielo">Cielo Dubai</a>
       <a href="#experiencia">El salón</a>
       <a href="#fotos">Fotos</a>
+      <a href="#eventos" id="navEventos" hidden>Eventos</a>
       <a href="#seguridad">Seguridad</a>
       <a href="#consultar">Fechas</a>
       <a href="#llegar">Cómo llegar</a>
@@ -123,7 +125,7 @@
 
           <button class="tile tile-photo" type="button" data-open-id="pista-globos" data-reveal>
             <img src="img/nuevo/pista-globos.jpg" alt="" loading="lazy">
-            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><b>Luces y show láser</b><small>Bolas de espejos, barras de luces, láser y pantalla.</small></span>
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><b>Luces y show láser</b><small>Estructura truss de iluminación, luces robóticas LED, show láser y pantalla grande.</small></span>
           </button>
 
           <button class="tile tile-photo tile-tall" type="button" data-open-id="dj-cabina" data-reveal>
@@ -138,7 +140,7 @@
 
           <button class="tile tile-photo" type="button" data-open-id="entrada-arco" data-reveal>
             <img src="img/nuevo/entrada-arco.jpg" alt="" loading="lazy">
-            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V11a7 7 0 0 1 14 0v10M9 21v-6h6v6"/></svg></span><b>Entrada de película</b><small>Arco iluminado, alfombra roja y trono.</small></span>
+            <span class="tile-cap"><span class="ico ico-pink"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V11a7 7 0 0 1 14 0v10M9 21v-6h6v6"/></svg></span><b>Entrada de película</b><small>Arco iluminado, alfombras rojas y trono.</small></span>
           </button>
 
           <button class="tile tile-photo tile-grill" type="button" data-open-id="parrilla" data-reveal>
@@ -209,20 +211,34 @@
       </div>
     </section>
 
-    <!-- FECHAS: calendario con disponibilidad real -->
-    <section class="sec seg clasico clasico-ini" id="seguridad" aria-labelledby="h-seg">
+    <!-- EVENTOS REALIZADOS: fotos y videos que sube el dueño desde el panel (se muestra solo si hay) -->
+    <section class="sec" id="eventos" aria-labelledby="h-ev" hidden>
+      <div class="wrap">
+        <div class="head-row">
+          <div>
+            <p class="eyebrow pink">Eventos en el salón</p>
+            <h2 id="h-ev">Fiestas que <span class="neon-pink">ya vivimos</span></h2>
+          </div>
+          <div class="chips" id="evFiltros" role="group" aria-label="Filtrar por tipo de evento"></div>
+        </div>
+        <div class="ev-grid" id="evGrid"></div>
+      </div>
+    </section>
+
+    <!-- FECHAS: el cliente elige el día y consulta por WhatsApp -->
+    <section class="sec seg claro claro-ini" id="seguridad" aria-labelledby="h-seg">
       <div class="wrap seg-grid">
         <div class="seg-txt">
           <p class="eyebrow green" data-reveal>Salón seguro</p>
           <h2 id="h-seg" data-reveal>Vos festejá.<br><span class="neon-green">Nosotros cuidamos.</span></h2>
-          <p class="lead" data-reveal>Un salón preparado de verdad. Si es la fiesta de 15 de tu hija o el evento de tu empresa, sabés que todos están en un lugar seguro. Y si se corta la luz, la fiesta sigue.</p>
+          <p class="lead" data-reveal>Un salón preparado de verdad. Casamientos, fiestas de 15, cumpleaños infantiles, egresados, bautismos, eventos de empresa o lo que quieras festejar: sabés que todos están en un lugar seguro. Y si se corta la luz, la fiesta sigue.</p>
           <ul class="checks">
             <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7h6v13H9zM10 7V4h4l3 2M12 4V2M9 11h6"/></svg></span><div><b>Matafuegos por todo el salón</b><small>Distribuidos y a la vista.</small></div></li>
             <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></span><div><b>Plano de evacuación</b><small>Salidas y puntos de encuentro marcados.</small></div></li>
             <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h10v16H4zM14 12h7M18 9l3 3-3 3"/></svg></span><div><b>Salidas señalizadas</b><small>Carteles claros y recomendaciones.</small></div></li>
             <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM9 8h6M9 12h6M9 16h3"/></svg></span><div><b>Plan de emergencia</b><small>Roles asignados y teléfonos de bomberos, policía y hospital a la vista.</small></div></li>
             <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span><div><b>Grupo electrógeno</b><small>Si se corta la luz, siguen las luces de bajo consumo y el equipo de sonido. El evento continúa.</small></div></li>
-            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Seguridad en la puerta</b><small>2 personas propias y capacitadas.</small></div></li>
+            <li data-reveal><span class="ico ico-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Seguridad en la puerta</b><small>Personal propio y capacitado.</small></div></li>
           </ul>
         </div>
         <button class="pic collage" type="button" data-open-id="seg-plano-evacuacion" data-reveal>
@@ -233,11 +249,11 @@
     </section>
 
     <!-- FOTOS -->
-    <section class="sec consultar clasico" id="consultar" aria-labelledby="h-cons">
+    <section class="sec consultar claro" id="consultar" aria-labelledby="h-cons">
       <div class="wrap">
         <p class="eyebrow cyan" data-reveal>Fechas</p>
         <h2 id="h-cons" data-reveal>Elegí tu <span class="neon-cyan">fecha</span></h2>
-        <p class="lead" data-reveal>Mirá qué días están libres y consultá con un toque. Los días ocupados no se pueden elegir.</p>
+        <p class="lead" data-reveal>Tocá el día que tenés pensado para tu evento. Te armamos el mensaje, lo mandás por WhatsApp y te confirmamos si está disponible.</p>
         <div class="cal-wrap">
           <div class="cal" id="cal" data-reveal>
             <div class="cal-head">
@@ -248,8 +264,7 @@
             <div class="cal-dow" aria-hidden="true"><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span></div>
             <div class="cal-grid" id="calGrid" role="group" aria-label="Días del mes"></div>
             <ul class="cal-ley" aria-label="Referencias">
-              <li><i class="k k-libre"></i>Disponible</li>
-              <li><i class="k k-res"></i>Ocupada</li>
+              <li><i class="k k-sel"></i>Día elegido</li>
               <li><i class="k k-hoy"></i>Hoy</li>
             </ul>
             <p class="cal-estado" id="calEstado" role="status"></p>
@@ -257,7 +272,7 @@
           <div class="sel" id="sel" aria-live="polite"></div>
         </div>
         <ol class="steps steps-row">
-          <li data-reveal><span>01</span><div><b>Elegí un día libre</b><small>Y escribinos por WhatsApp con el mensaje armado.</small></div></li>
+          <li data-reveal><span>01</span><div><b>Elegí tu día</b><small>Y mandanos el mensaje armado por WhatsApp. Te confirmamos si está disponible.</small></div></li>
           <li data-reveal><span>02</span><div><b>Vení a conocer el salón</b><small>Lo recorrés con las luces encendidas.</small></div></li>
           <li data-reveal><span>03</span><div><b>Reservá con una seña</b><small>Firmás el acuerdo y la fecha es tuya.</small></div></li>
         </ol>
@@ -265,7 +280,7 @@
     </section>
 
     <!-- TODO LO QUE INCLUYE (misma lista que la versión original) -->
-    <section class="sec clasico" id="incluye" aria-labelledby="h-inc">
+    <section class="sec claro" id="incluye" aria-labelledby="h-inc">
       <div class="wrap">
         <p class="eyebrow pink" data-reveal>Servicios</p>
         <h2 id="h-inc" data-reveal>Todo lo que <span class="neon-pink">incluye</span></h2>
@@ -274,7 +289,7 @@
     </section>
 
     <!-- CÓMO LLEGAR -->
-    <section class="sec clasico" id="llegar" aria-labelledby="h-llegar">
+    <section class="sec claro" id="llegar" aria-labelledby="h-llegar">
       <div class="wrap llegar-grid">
         <div>
           <p class="eyebrow pink" data-reveal>Cómo llegar</p>
@@ -303,13 +318,13 @@
     </section>
 
     <!-- FAQ -->
-    <section class="sec clasico clasico-fin" id="preguntas" aria-labelledby="h-faq">
+    <section class="sec claro claro-fin" id="preguntas" aria-labelledby="h-faq">
       <div class="wrap faq-grid">
         <h2 id="h-faq" data-reveal>Preguntas</h2>
         <div class="faq" id="faqLista">
           <details data-reveal><summary>¿El DJ está incluido?<i></i></summary><p>Sí. El DJ está incluido y el salón tiene 2 cabinas.</p></details>
           <details data-reveal><summary>¿Qué es el Cielo Dubai?<i></i></summary><p>Una cortina de cientos de luces cálidas que cuelga del techo sobre todo el salón. Ideal para la entrada, el vals y las fotos.</p></details>
-          <details data-reveal><summary>¿Qué tan seguro es el salón?<i></i></summary><p>Hay matafuegos por todo el salón, plano de evacuación con salidas y puntos de encuentro, cartelería de emergencia y 2 personas de seguridad propia en la entrada.</p></details>
+          <details data-reveal><summary>¿Qué tan seguro es el salón?<i></i></summary><p>Hay matafuegos por todo el salón, plano de evacuación con salidas y puntos de encuentro, cartelería de emergencia y personal de seguridad propio en la entrada.</p></details>
           <details data-reveal><summary>¿Hace calor en verano o frío en invierno?<i></i></summary><p>No. El salón está climatizado frío / calor.</p></details>
           <details data-reveal><summary>¿Qué pasa si se corta la luz?<i></i></summary><p>La fiesta sigue. El grupo electrógeno mantiene las luces de bajo consumo y el equipo de sonido.</p></details>
           <details data-reveal><summary>¿Cuántas personas entran?<i></i></summary><p>200 personas sentadas o 300 paradas.</p></details>
@@ -357,7 +372,7 @@
     <div class="v-thumbs" id="visorThumbs"></div>
   </dialog>
 
-  <script src="js/site-data.js?v=15"></script>
-  <script src="js/nuevo.js?v=14" defer></script>
+  <script src="js/site-data.js?v=16"></script>
+  <script src="js/nuevo.js?v=15" defer></script>
 </body>
 </html>
