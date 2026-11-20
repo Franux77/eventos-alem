@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Eventos Alem · Armá tu fiesta</title>
+  <meta name="description" content="Armá tu fiesta en Eventos Alem en un minuto y coordiná tu visita al salón. Goya, Corrientes.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0A0810">
+  <link rel="icon" href="img/marca/ea-blanco.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Outfit:wght@400;500;600;700&family=Great+Vibes&display=swap">
+  <link rel="stylesheet" href="css/nueva.css?v=1">
+</head>
+<body>
+  <!-- Fondo de ambiente (solo se ve en pantallas grandes, a los costados) -->
+  <div class="amb" aria-hidden="true"><video src="img/nuevo/v-pista.mp4" poster="img/nuevo/v-pista.jpg" muted autoplay loop playsinline></video></div>
+
+  <main class="story" id="story" aria-live="polite">
+    <header class="top">
+      <div class="bars" id="bars" aria-hidden="true"></div>
+      <div class="top-row">
+        <button class="ic" id="atras" type="button" aria-label="Volver al paso anterior" hidden>
+          <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <img class="logo" src="img/marca/logo-horizontal-blanco.svg" alt="Eventos Alem" width="150" height="34">
+        <span class="paso" id="pasoTxt"></span>
+      </div>
+    </header>
+
+    <!-- 0 · Portada -->
+    <section class="st st-intro on" data-st="intro" aria-labelledby="t0">
+      <video class="bg" src="img/nuevo/v-cielo.mp4" poster="img/nuevo/v-cielo.jpg" muted autoplay loop playsinline aria-hidden="true"></video>
+      <div class="shade"></div>
+      <div class="in in-bottom">
+        <p class="kick"><span class="dot"></span>Salón de eventos · Goya</p>
+        <h1 id="t0">Viví tu fiesta<br><em>antes de que pase.</em></h1>
+        <p class="sub">En un minuto la armás y la ves acá. Sin registrarte y sin dar tus datos.</p>
+        <button class="cta" type="button" data-next>Armar mi fiesta <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="mini">4 preguntas · menos de 1 minuto</p>
+      </div>
+    </section>
+
+    <!-- 1 · Qué festejás -->
+    <section class="st" data-st="tipo" aria-labelledby="t1">
+      <div class="in">
+        <h2 id="t1">¿Qué vas a festejar?</h2>
+        <div class="tipos" role="list">
+          <button class="tipo" type="button" data-tipo="15" role="listitem"><img src="img/nuevo/trono.jpg" alt=""><span>15 años</span></button>
+          <button class="tipo" type="button" data-tipo="cumple" role="listitem"><img src="img/nuevo/pista-globos.jpg" alt=""><span>Cumpleaños</span></button>
+          <button class="tipo" type="button" data-tipo="empresa" role="listitem"><img src="img/nuevo/salon-mesas.jpg" alt=""><span>Empresa</span></button>
+          <button class="tipo" type="button" data-tipo="otra" role="listitem"><img src="img/nuevo/dj-luces.jpg" alt=""><span>Otra fiesta</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · Nombre -->
+    <section class="st" data-st="nombre" aria-labelledby="t2">
+      <div class="in">
+        <h2 id="t2"><span id="t2txt">¿Cómo se llama quien festeja?</span></h2>
+        <label class="campo">
+          <span class="sr">Nombre</span>
+          <input id="nombre" type="text" maxlength="24" autocomplete="off" autocapitalize="words" placeholder="Ej: Sofi">
+        </label>
+        <figure class="camino" aria-label="Vista previa del camino de mesa bordado">
+          <div class="tela"><span class="bordado" id="bordado">Tu nombre acá</span></div>
+          <figcaption><b>Esto va de regalo.</b> Bordamos el nombre en el camino de la mesa principal.</figcaption>
+        </figure>
+        <div class="acc">
+          <button class="cta" type="button" data-next>Seguir</button>
+          <button class="link" type="button" data-next>Prefiero no decirlo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Cuántos -->
+    <section class="st" data-st="gente" aria-labelledby="t3">
+      <div class="in">
+        <h2 id="t3">¿Cuántos van a ser?</h2>
+        <p class="num"><output id="genteNum">120</output> <small>personas</small></p>
+        <div class="plano" id="plano" aria-hidden="true"></div>
+        <input class="rango" id="gente" type="range" min="20" max="300" step="10" value="120" aria-label="Cantidad de invitados" aria-describedby="genteMsg">
+        <p class="aviso" id="genteMsg"></p>
+        <button class="cta" type="button" data-next>Seguir</button>
+      </div>
+    </section>
+
+    <!-- 4 · Fecha -->
+    <section class="st" data-st="fecha" aria-labelledby="t4">
+      <div class="in">
+        <h2 id="t4">¿Para cuándo?</h2>
+        <p class="sub2">Estas son las fechas reales del salón. Las ocupadas no se pueden elegir.</p>
+        <div class="cal" id="cal">
+          <div class="cal-h">
+            <button class="ic" id="calPrev" type="button" aria-label="Mes anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <b id="calMes">…</b>
+            <button class="ic" id="calNext" type="button" aria-label="Mes siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+          <div class="cal-dow" aria-hidden="true"><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span></div>
+          <div class="cal-g" id="calGrid"><div class="skel"></div></div>
+          <p class="cal-ley"><i class="k k-l"></i>Libre <i class="k k-o"></i>Ocupada</p>
+        </div>
+        <p class="aviso" id="fechaMsg" role="status"></p>
+        <div class="acc">
+          <button class="cta" id="fechaOk" type="button" data-next disabled>Elegí un día</button>
+          <button class="link" type="button" id="sinFecha">Todavía no tengo fecha</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Tu noche -->
+    <section class="st st-scroll" data-st="noche" aria-labelledby="t5">
+      <div class="in">
+        <p class="kick kick-s">Así va a ser</p>
+        <h2 id="t5"><span id="nocheTit">Tu noche</span></h2>
+        <ol class="linea" id="linea"></ol>
+        <button class="cta" type="button" data-next>¿Y si pasa algo?</button>
+      </div>
+    </section>
+
+    <!-- 6 · Dudas -->
+    <section class="st" data-st="dudas" aria-labelledby="t6">
+      <div class="in">
+        <h2 id="t6">Lo que siempre preocupa,<br><em>ya está resuelto.</em></h2>
+        <ul class="dudas" id="dudas"></ul>
+        <button class="cta" type="button" data-next>Ver mi fiesta</button>
+      </div>
+    </section>
+
+    <!-- 7 · Cierre -->
+    <section class="st st-scroll st-fin" data-st="fin" aria-labelledby="t7">
+      <div class="in">
+        <article class="pase" aria-label="Resumen de tu fiesta">
+          <div class="pase-top">
+            <img src="img/marca/ea-blanco.svg" alt="" width="34" height="34">
+            <span>Pase · Eventos Alem</span>
+          </div>
+          <p class="pase-tipo" id="paseTipo">Tu fiesta</p>
+          <p class="pase-nom" id="paseNom"></p>
+          <dl class="pase-dl">
+            <div><dt>Invitados</dt><dd id="paseGente">—</dd></div>
+            <div><dt>Fecha</dt><dd id="paseFecha">A definir</dd></div>
+            <div><dt>Incluye</dt><dd>DJ · Cielo Dubai · Parrilla · Seguridad</dd></div>
+          </dl>
+          <div class="pase-corte" aria-hidden="true"></div>
+          <p class="pase-pie">Av. Leandro N. Alem 1171 · Goya</p>
+        </article>
+
+        <h2 id="t7">Tu fiesta ya está armada.<br><em>Solo falta que la veas en persona.</em></h2>
+        <p class="sub2">Venís, recorrés el salón, prendemos las luces y el Cielo Dubai, y decidís tranquilo. Conocerlo no te compromete a nada.</p>
+
+        <fieldset class="pref">
+          <legend>¿Cuándo te queda cómodo venir?</legend>
+          <div class="chips" data-grupo="cuando">
+            <button type="button" class="chip" aria-pressed="false" data-v="esta semana">Esta semana</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="el fin de semana">El finde</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="cuando puedan">Me da igual</button>
+          </div>
+          <div class="chips" data-grupo="franja">
+            <button type="button" class="chip" aria-pressed="false" data-v="a la mañana">Mañana</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="a la tarde">Tarde</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="a la noche">Noche</button>
+          </div>
+        </fieldset>
+
+        <a class="cta cta-wa" id="waCta" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" class="wa"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Coordinar mi visita
+        </a>
+        <p class="mini center">Se abre WhatsApp con tu fiesta ya escrita. Solo tocás enviar.</p>
+        <p class="center"><a class="link" href="./">Ver la web completa del salón</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site-data.js?v=15"></script>
+  <script src="js/nueva.js?v=1"></script>
+</body>
+</html>
